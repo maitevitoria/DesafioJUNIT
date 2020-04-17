@@ -132,3 +132,24 @@ class JulgamentoPrisioneiroTeste {
 }
 
 Obs: Correção da PENA_CONDENACAO_MUTUA.
+
+-------------------------------------------
+RODADA 4
+
+
+JulgamentoPrisioneiroTeste.java
+
+@Test
+	void testeCondenacaoIndividual() {
+		String respostaPrisioneiroA = "Culpado";
+		String respostaPrisioneiroB = "Inocente";
+		
+		JulgamentoPrisioneiro jp = new JulgamentoPrisioneiro();
+		
+		int resultadoEsperado = 10;
+		int resultadoReal = jp.calculaPena(respostaPrisioneiroA, respostaPrisioneiroB);
+		
+		assertEquals(resultadoEsperado, resultadoReal);
+	}
+
+Obs: Teste da condenação funcionou.
