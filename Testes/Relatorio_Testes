@@ -1,0 +1,40 @@
+Maite Vitória Alves da Silva RM: 80344
+
+Teste1
+JulgamentoPrisioneiro.java
+public class JulgamentoPrisioneiro {	
+   private int PENA_INOCENCIA = 10;
+   private int PENA_CONDENACAO_MUTUA = 15;
+   private int PENA_CONDENACAO_INDIVIDUAL = 10;
+   private int PENA_CONDENACAO_CUMPLICES = 11;
+   public int calculaPena(Resposta respostaPrisioneiroA, Resposta respostaPrisioneiroB) {
+      if (respostaPrisioneiroA == Resposta.DELACAO) {
+          if (respostaPrisioneiroB == Resposta.DELACAO) {
+            return PENA_CONDENACAO_MUTUA;
+          } else {
+                 return PENA_INOCENCIA;
+                 }
+       } else {
+                if (respostaPrisioneiroB == Resposta.DELACAO) {
+                    return PENA_CONDENACAO_INDIVIDUAL;
+                } else {
+                         return PENA_CONDENACAO_CUMPLICES;
+                        }
+                }
+     } }
+JulgamentoPrisioneiroTeste.java
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+class JulgamentoPrisioneiroTeste {
+	@Test
+	void testeCalculaPena() {
+		String respostaPrisioneiroA = "Culpado";
+		String respostaPrisioneiroB = "Culpado";
+		JulgamentoPrisioneiro jp = new JulgamentoPrisioneiro();		
+		int resultadoEsperado = 5;
+		int resultadoReal = jp.calculaPena(respostaPrisioneiroA, respostaPrisioneiroB);		
+		assertEquals(resultadoEsperado, resultadoReal);
+	}
+}
+Erro: (java.lang.Error: Unresolved compilation problem: The method calculaPena(Resposta, Resposta) from the type JulgamentoPrisioneiro refers to the missing type Resposta) 
+Obs: O método precisa receber String.
